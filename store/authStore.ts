@@ -1,6 +1,7 @@
 import create from 'zustand'
 import {persist } from 'zustand/middleware'
 
+
 const authStore = (set: any) => ({
   userProfile: null,
 
