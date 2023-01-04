@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Video } from "../types";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
@@ -27,6 +27,13 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
 			setPlaying(true);
 		}
 	};
+
+	useEffect(() => {
+		if (videoRef?.current) {
+			videoRef.current.muted = isVideoMuted;
+		}
+	}, [isVideoMuted]);
+
 	return (
 		<div className="flex flex-col border-b-2 border-gray-200 pb-6">
 			<div>
@@ -76,7 +83,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
 					onMouseEnter={() => setIsHover(true)}
 					onMouseLeave={() => setIsHover(false)}
 					className="rounded-3xl">
-					<Link href="/">
+					<Link href={`/detail/${post._id}`}>
 						<video
 							loop
 							ref={videoRef}
