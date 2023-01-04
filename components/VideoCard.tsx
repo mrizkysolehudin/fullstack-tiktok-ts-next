@@ -4,7 +4,6 @@ import { Video } from "../types";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
-import { BsPlay } from "react-icons/bs";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -39,7 +38,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
 			<div>
 				<div className="flex gap-3 p-2 cursor-pointer font-semibold rounded mb-2">
 					<div className="md:w-16 md:h-16 w-10 h-10">
-						<Link href="/">
+						<Link href={`/profile/${post.postedBy._id}`}>
 							<>
 								{/* <div className="md:w-16 md:h-16 w-10 h-10 relative">
 									<Image
@@ -61,7 +60,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
 					</div>
 
 					<div>
-						<Link href={`/`}>
+						<Link href={`/profile/${post.postedBy._id}`}>
 							<div className="flex items-center gap-2">
 								<p className="flex gap-2 items-center md:text-md font-bold text-primary">
 									{post.postedBy.userName}{" "}

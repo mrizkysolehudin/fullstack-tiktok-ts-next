@@ -77,7 +77,7 @@ const Comments = ({
 												</div>
 											</Link>
 											<div>
-												<p className="-mt-2 mb-3 mr-8 capitalize">
+												<p className="-mt-2 mb-1 mr-8 capitalize">
 													{item.comment}
 												</p>
 											</div>
